@@ -1,0 +1,20 @@
+{
+  "name": "prosports-scraper",
+  "version": "0.0.1",
+  "description": "Scrape CBS Sports player data for use in Hoot Draft",
+  "main": "scraper.js",
+  "author": "Matthew G Orres",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "scrape": "node scraper.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "csv-writer": "^1.2.0",
+    "limiter": "^1.1.4",
+    "lodash": "^4.17.11",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
