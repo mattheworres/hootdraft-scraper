@@ -1,27 +1,29 @@
 const cheerio = require('cheerio');
-const positionHelpers = require('./positionTranslator');
-const translateTeam = require('./teamTranslator');
+const {positionTranslator, teamTranslator} = require('./translators/index');
 const lodash = require('lodash');
+const parsingException = require('./helpers/parsingException');
 
 const parsePlayer = (sport, playerRowElement) => {
   let player = {};
-  const ignoredPositions = positionHelpers.getIgnoredPositions(sport);
+  const ignoredPositions = positionTranslator.getIgnoredPositions(sport);
 
   cheerio(playerRowElement).children('td').each((index, element) => {
     const $element = cheerio(element);
+    const rowText = cheerio(playerRowElement).text();
+    const elementText = $element.text();
     if (index === 0) {
       const playerName = $element.find('a').text();
 
-      if (playerName === undefined || playerName.length === 0) throw `Name undefined: ${cheerio(playerRowElement).text()}`;
+      if (playerName === undefined || playerName.length === 0) throw new parsingException('name', playerName, rowText);
       player.player = playerName;
     } else if (index === 1) {
-      const translatedSport = positionHelpers.translatePosition(sport, $element.text());
-      const positionIsNotIgnored = !lodash.includes(ignoredPositions, $element.text());
-      if (translatedSport === undefined && positionIsNotIgnored) throw `Position undefined: ${cheerio(playerRowElement).text()}`;
-      player.position = translatedSport;
+      const translatedPosition = positionTranslator.translatePosition(sport, elementText);
+      const positionIsNotIgnored = !lodash.includes(ignoredPositions, elementText);
+      if (translatedPosition === undefined && positionIsNotIgnored) throw new parsingException('position', elementText, rowText);
+      player.position = translatedPosition;
     } else {
-      const translatedTeam = translateTeam(sport, $element.text());
-      if (translatedTeam === undefined) throw `Team undefined: ${cheerio(playerRowElement).text()}`;
+      const translatedTeam = teamTranslator(sport, elementText);
+      if (translatedTeam === undefined) throw new parsingException('team', elementText, rowText);
       player.team = translatedTeam;
     }
   });

@@ -1,7 +1,3 @@
 node_modules
 devnotes.md
-nba_players.csv
-mlb_players.csv
-nhl_players.csv
-nfl_players.csv
-nfle_players.csv
+*_players.csv
