@@ -9,8 +9,12 @@ const {
   ignoredNflePositions,
   nhlPositions,
   ignoredNhlPositions,
-  ncaamPositions,
-  ignoredNcaamPositions,
+  ncaabbPositions,
+  ignoredncaabbPositions,
+  ncaafbPositions,
+  ncaafbePositions,
+  ignoredNcaafbPositions,
+  ignoredNcaafbEPositions,
 } = require('../positions/index');
 
 const translatePosition = (sport, positionText) => {
@@ -30,8 +34,14 @@ const translatePosition = (sport, positionText) => {
     case "mlb":
       return mlbPositions[positionText];
 
-    case "ncaam":
-      return ncaamPositions[positionText];
+    case "ncaabb":
+      return ncaabbPositions[positionText];
+
+    case "ncaafb":
+      return ncaafbPositions[positionText];
+
+    case "ncaafbe":
+      return ncaafbePositions[positionText];
   }
 };
 
@@ -52,8 +62,14 @@ const getIgnoredPositions = sport => {
     case "mlb":
       return ignoredMlbPositions;
 
-    case "ncaam":
-      return ignoredNcaamPositions;
+    case "ncaabb":
+      return ignoredncaabbPositions;
+
+    case "ncaafb":
+      return ignoredNcaafbPositions;
+
+    case "ncaafbe":
+      return ignoredNcaafbEPositions;
   }
 }
 

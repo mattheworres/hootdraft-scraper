@@ -20,13 +20,23 @@ yarn
 
 ## Scraping
 
-1. Run the scraper by providing the league code you want player data for (`nfl`, `nfle`, `nba`, `nhl`, `mlb`, `ncaam`) as the only argument:
+1. Run the scraper by providing the league code you want player data for (`nfl`, `nfle`, `nba`, `nhl`, `mlb`, `ncaabb`, `ncaafb`, `ncaafbe`) as the only argument:
 
 ```
 yarn scrape nba
 ```
 
-If completed successfully, a `[nfl|nfle|nba|nhl|mlb|ncaam]_players.csv` file now exists in the base directory.
+If completed successfully, a `[nfl|nfle|nba|nhl|mlb|ncaabb|ncaafb|ncaafbe]_players.csv` file now exists in the base directory.
+
+## Leagues
+* NFL (`nfl`)
+* NFL Extended (including linemen, defensive backs, etc.) (`nfle`)
+* NBA (`nba`)
+* NHL (`nhl`)
+* MLB (`mlb`)
+* NCAA Mens Basketball (`ncaabb`)
+* NCAA Mens Football (`ncaafb`)
+* NCAA Mens Football Extended (including linemen, defensive backs, etc.) (`ncaafbe`)
 
 ## Built With
 

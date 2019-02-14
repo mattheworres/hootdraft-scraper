@@ -1,4 +1,4 @@
-const {nbaTeams, nflTeams, nhlTeams, mlbTeams, ncaamTeams} = require('../teams/index');
+const {nbaTeams, nflTeams, nhlTeams, mlbTeams, ncaabbTeams, ncaafbTeams} = require('../teams/index');
 
 const translateTeam = (sport, teamText) => {
   switch (sport) {
@@ -15,8 +15,12 @@ const translateTeam = (sport, teamText) => {
     case "mlb":
       return mlbTeams[teamText];
 
-    case "ncaam":
-      return ncaamTeams[teamText];
+    case "ncaabb":
+      return ncaabbTeams[teamText];
+
+    case "ncaafb":
+    case "ncaafbe":
+      return ncaafbTeams[teamText];
   }
 };
 

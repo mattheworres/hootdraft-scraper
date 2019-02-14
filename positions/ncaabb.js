@@ -1,4 +1,4 @@
-const ncaamPositions = {
+const ncaabbPositions = {
   "PG": "PG",
   "SG": "SG",
   "G": "SG",
@@ -10,11 +10,11 @@ const ncaamPositions = {
   "F/C": "SF",
 };
 
-const ignoredNcaamPositions = [
+const ignoredncaabbPositions = [
 
 ];
 
 module.exports = {
-  ncaamPositions,
-  ignoredNcaamPositions,
+  ncaabbPositions,
+  ignoredncaabbPositions,
 };
