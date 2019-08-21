@@ -64,17 +64,16 @@ const ncaafbePositions = {
   "G": "OL",
 };
 
-const ignoredNcaafbEPositions = [
-  "P",
-  "LS",
-  "TQB",
-  "ST",
-  "D",
-];
+const ignoredNcaafbePositions = ["P", "LS", "TQB", "ST", "D"];
+
+const ncaafbPositionsRequiringNameTranslation = [];
+const ncaafbePositionsRequiringNameTranslation = [];
 
 module.exports = {
   ncaafbPositions,
   ignoredNcaafbPositions,
   ncaafbePositions,
-  ignoredNcaafbEPositions,
+  ignoredNcaafbePositions,
+  ncaafbPositionsRequiringNameTranslation,
+  ncaafbePositionsRequiringNameTranslation
 };

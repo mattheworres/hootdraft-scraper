@@ -1,19 +1,38 @@
-const {nbaPositions, ignoredNbaPositions} = require('./nba');
-const {nhlPositions, ignoredNhlPositions} = require('./nhl');
-const {mlbPositions, ignoredMlbPositions} = require('./mlb');
-const {ncaabbPositions, ignoredncaabbPositions} = require('./ncaabb');
+const {
+  nbaPositions,
+  ignoredNbaPositions,
+  nbaPositionsRequiringNameTranslation
+} = require("./nba");
+const {
+  nhlPositions,
+  ignoredNhlPositions,
+  nhlPositionsRequiringNameTranslation
+} = require("./nhl");
+const {
+  mlbPositions,
+  ignoredMlbPositions,
+  mlbPositionsRequiringNameTranslation
+} = require("./mlb");
+const {
+  ncaabbPositions,
+  ignoredNcaabbPositions,
+  ncaabbPositionsRequiringNameTranslation
+} = require("./ncaabb");
 const {
   nflPositions,
   ignoredNflPositions,
   nflePositions,
   ignoredNflePositions,
-} = require('./nfl');
+  nflPositionsRequiringNameTranslation,
+  nflePositionsRequiringNameTranslation
+} = require("./nfl");
 const {
   ncaafbPositions,
   ignoredNcaafbPositions,
   ncaafbePositions,
-  ignoredNcaafbEPositions,
-} = require('./ncaafb');
+  ignoredNcaafbePositions,
+  ncaafbPositionsRequiringNameTranslation
+} = require("./ncaafb");
 
 module.exports = {
   nbaPositions,
@@ -27,9 +46,16 @@ module.exports = {
   mlbPositions,
   ignoredMlbPositions,
   ncaabbPositions,
-  ignoredncaabbPositions,
+  ignoredNcaabbPositions,
   ncaafbPositions,
   ignoredNcaafbPositions,
   ncaafbePositions,
-  ignoredNcaafbEPositions,
+  ignoredNcaafbePositions,
+  nbaPositionsRequiringNameTranslation,
+  nhlPositionsRequiringNameTranslation,
+  mlbPositionsRequiringNameTranslation,
+  ncaabbPositionsRequiringNameTranslation,
+  nflPositionsRequiringNameTranslation,
+  nflePositionsRequiringNameTranslation,
+  ncaafbPositionsRequiringNameTranslation
 };

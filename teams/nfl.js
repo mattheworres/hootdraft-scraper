@@ -30,7 +30,42 @@ const nflTeams = {
   "Seattle Seahawks": "SEA",
   "Tampa Bay Buccaneers": "TAM",
   "Tennessee Titans": "TEN",
-  "Washington Redskins": "WAS",
+  "Washington Redskins": "WAS"
 };
 
-module.exports = nflTeams;
+const nflTeamNames = {
+  "ARI": "Cardinals, Arizona",
+  "ATL": "Falcons, Atlanta",
+  "BAL": "Ravens, Baltimore",
+  "BUF": "Bills, Buffalo",
+  "CAR": "Panthers, Carolina",
+  "CHI": "Bears, Chicago",
+  "CIN": "Bengals, Cincinnati",
+  "CLE": "Browns, Cleveland",
+  "DAL": "Cowboys, Dallas",
+  "DEN": "Broncos, Denver",
+  "DET": "Lions, Detroit",
+  "GNB": "Packers, Green Bay",
+  "HOU": "Texans, Houston",
+  "IND": "Colts, Indianapolis",
+  "JAC": "Jaguars, Jacksonville",
+  "K.C": "Chiefs, Kansas City",
+  "LAC": "Chargers, Los Angeles",
+  "LAR": "Rams, Los Angeles",
+  "MIA": "Dolphins, Miami",
+  "MIN": "Vikings, Minnesota",
+  "NWE": "Patriots, New England",
+  "NOR": "Saints, New Orleans",
+  "NYG": "Giants, New York",
+  "NYJ": "Jets, New York",
+  "OAK": "Raiders, Oakland",
+  "PHI": "Eagles, Philadelphia",
+  "PIT": "Steelers, Pittsburgh",
+  "SFO": "49ers, San Francisco",
+  "SEA": "Seahawks, Seattle",
+  "TAM": "Buccaneers, Tampa Bay",
+  "TEN": "Titans, Tennessee",
+  "WAS": "Redskins, Washington"
+};
+
+module.exports = { nflTeams, nflTeamNames };

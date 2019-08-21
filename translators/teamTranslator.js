@@ -1,4 +1,11 @@
-const {nbaTeams, nflTeams, nhlTeams, mlbTeams, ncaabbTeams, ncaafbTeams} = require('../teams/index');
+const {
+  nbaTeams,
+  nflTeams,
+  nhlTeams,
+  mlbTeams,
+  ncaabbTeams,
+  ncaafbTeams
+} = require("../teams/index");
 
 const translateTeam = (sport, teamText) => {
   switch (sport) {

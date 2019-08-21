@@ -10,11 +10,13 @@ const ncaabbPositions = {
   "F/C": "SF",
 };
 
+const ignoredNcaabbPositions = [];
 const ignoredncaabbPositions = [
 
-];
+const ncaabbPositionsRequiringNameTranslation = [];
 
 module.exports = {
   ncaabbPositions,
-  ignoredncaabbPositions,
+  ignoredNcaabbPositions,
+  ncaabbPositionsRequiringNameTranslation
 };

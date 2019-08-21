@@ -6,11 +6,12 @@ const nhlPositions = {
   "G": "G",
 };
 
-const ignoredNhlPositions = [
-  "TG",
-];
+const ignoredNhlPositions = ["TG"];
+
+const nhlPositionsRequiringNameTranslation = [];
 
 module.exports = {
   nhlPositions,
   ignoredNhlPositions,
+  nhlPositionsRequiringNameTranslation
 };

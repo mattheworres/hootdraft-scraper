@@ -8,11 +8,12 @@ const nbaPositions = {
   "C": "C",
 };
 
-const ignoredNbaPositions = [
+const ignoredNbaPositions = [];
 
-];
+const nbaPositionsRequiringNameTranslation = [];
 
 module.exports = {
   nbaPositions,
   ignoredNbaPositions,
+  nbaPositionsRequiringNameTranslation
 };

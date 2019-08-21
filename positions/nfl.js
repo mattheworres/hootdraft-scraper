@@ -64,17 +64,16 @@ const nflePositions = {
   "G": "OL",
 };
 
-const ignoredNflePositions = [
-  "P",
-  "LS",
-  "TQB",
-  "ST",
-  "D",
-];
+const ignoredNflePositions = ["P", "LS", "TQB", "ST", "D"];
+
+const nflPositionsRequiringNameTranslation = ["DEF"];
+const nflePositionsRequiringNameTranslation = ["DEF"];
 
 module.exports = {
   nflPositions,
   ignoredNflPositions,
   nflePositions,
   ignoredNflePositions,
+  nflPositionsRequiringNameTranslation,
+  nflePositionsRequiringNameTranslation
 };

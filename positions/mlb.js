@@ -12,14 +12,15 @@ const mlbPositions = {
   "DH": "UTIL",
   "SP": "SP",
   "RP": "RP",
-  "P": "RP",
+  "P": "RP"
 };
 
-const ignoredMlbPositions = [
-  "PS",
-];
+const ignoredMlbPositions = ["PS"];
+
+const mlbPositionsRequiringNameTranslation = [];
 
 module.exports = {
   mlbPositions,
   ignoredMlbPositions,
+  mlbPositionsRequiringNameTranslation
 };
