@@ -99,10 +99,12 @@ const scrapePlayers = sport => {
                 });
               };
 
-              //console.log('(comment out lines below this one in playerScraper.js to see details)');
-              outputExceptions("name", nameExceptions);
-              outputExceptions("position", positionExceptions);
-              outputExceptions("team", teamExceptions);
+              console.log(
+                "(comment out lines below this one in playerScraper.js to see details)"
+              );
+              //outputExceptions("name", nameExceptions);
+              //outputExceptions("position", positionExceptions);
+              //outputExceptions("team", teamExceptions);
             }
 
             console.log(

@@ -7,11 +7,10 @@ const ncaabbPositions = {
   "PF": "PF",
   "C": "C",
   "G/F": "PG",
-  "F/C": "SF",
+  "F/C": "SF"
 };
 
 const ignoredNcaabbPositions = [];
-const ignoredncaabbPositions = [
 
 const ncaabbPositionsRequiringNameTranslation = [];
 
