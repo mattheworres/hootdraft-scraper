@@ -13,7 +13,7 @@
     "cheerio": "^1.0.0-rc.2",
     "csv-writer": "^1.2.0",
     "limiter": "^1.1.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }
