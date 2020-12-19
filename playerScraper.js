@@ -31,12 +31,12 @@ const letters = [
   "W",
   "X",
   "Y",
-  "Z"
+  "Z",
 ];
 
-const scrapePlayers = sport => {
+const scrapePlayers = (sport) => {
   const urlSport = sportUrlTranslator(sport);
-  const getUrl = letter =>
+  const getUrl = (letter) =>
     `https://www.cbssports.com/${urlSport}/playersearch?last_name_begins=${letter}&print_rows=9999`;
   const urls = letters.map(getUrl);
   let players = [];
@@ -54,7 +54,7 @@ const scrapePlayers = sport => {
     scraperLimeter.removeTokens(1, () => {
       process.stdout.write(`${index + 1} `);
       requestPromise(url)
-        .then(html => {
+        .then((html) => {
           cheerio(
             'table[class="data"] tbody tr.row1, table[class="data"] tbody tr.row2',
             html
@@ -94,7 +94,7 @@ const scrapePlayers = sport => {
               );
 
               const outputExceptions = (type, exceptions) => {
-                exceptions.forEach(exception => {
+                exceptions.forEach((exception) => {
                   console.warn(`${type}: ${exception}`);
                 });
               };
@@ -102,15 +102,13 @@ const scrapePlayers = sport => {
               console.log(
                 "(comment out lines below this one in playerScraper.js to see details)"
               );
-              //outputExceptions("name", nameExceptions);
+              outputExceptions("name", nameExceptions);
               //outputExceptions("position", positionExceptions);
-              //outputExceptions("team", teamExceptions);
+              outputExceptions("team", teamExceptions);
             }
 
             console.log(
-              `\n\nScraping complete. Writing ${
-                players.length
-              } players to file...`
+              `\n\nScraping complete. Writing ${players.length} players to file...`
             );
 
             writeToCsv(sport, players).then(() => {
@@ -119,7 +117,7 @@ const scrapePlayers = sport => {
             });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.warn("\n\nUh oh, failure: ", url, error);
           failedUrls.push(url);
         });
