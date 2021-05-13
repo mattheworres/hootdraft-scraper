@@ -1,18 +1,27 @@
 {
   "name": "prosports-scraper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scrape CBS Sports player data for use in Hoot Draft",
   "main": "scraper.js",
   "author": "Matthew G Orres",
   "license": "GPL-3.0",
   "private": false,
+  "engines": {
+    "node": ">=8.17.0"
+  },
   "scripts": {
-    "scrape": "node scraper.js"
+    "dev-scrape": "babel-node src/scraper.js",
+    "build": "babel src -d dist",
+    "scrape": "node dist/scraper.js"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "cheerio": "1.0.0-rc.9",
     "csv-writer": "^1.2.0",
-    "limiter": "^1.1.4",
+    "limiter": "^1.1.5",
     "lodash": "^4.17.21",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
