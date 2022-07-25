@@ -6,7 +6,7 @@ const mlbTeams = {
   "Chicago Cubs": "CHC",
   "Chicago White Sox": "CWS",
   "Cincinnati Reds": "CIN",
-  "Cleveland Indians": "CLE",
+  "Cleveland Guardians": "CLE",
   "Colorado Rockies": "COL",
   "Detroit Tigers": "DET",
   "Houston Astros": "HOU",
@@ -31,4 +31,12 @@ const mlbTeams = {
   "Washington Nationals": "WAS",
 };
 
-export {mlbTeams};
+const mlbTeamUrlAbbreviations = {
+  "CWS": "CHW",
+  "K.C": "KC",
+  "SDG": "SD",
+  "TAM": "TB",
+  "SFO": "SF"
+};
+
+export {mlbTeams, mlbTeamUrlAbbreviations};

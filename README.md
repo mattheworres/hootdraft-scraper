@@ -49,7 +49,9 @@ yarn scrape nba logging
 
 Starting with 0.0.2, the project is transpiled using [Babel](https://babeljs.io). By default, the `scrape` script automatically runs the pre-transpiled code that is checked into the repository. Because this Javascript is transpiled to allow the largest targeted amount of browsers to run the code. In this instance, this allows me to write ES6 Javascript, while still running against the tried and true CommonJS that NodeJS understands (soon enough, I'll likely skip this transpilation step altogether, but ah well).
 
-Use Babel to run the ES6 "directly", as it transpiles it on the fly by using the `dev-scrape` script just as you would the normal `scrape` script.
+Use Babel to run the ES6 "directly", as it transpiles it on the fly by using the `dev-scrape` script just as you would the normal `scrape` script. Append a truthy value after as a second argument, like such:
+`yarn dev-scrape nfl 1`
+to enable console debugging
 
 Once your changes are complete, run the `build` script to transpile your changes into the `/dist` folder, and then commit the changes in Git. Hooray!
 

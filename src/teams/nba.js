@@ -31,4 +31,12 @@ const nbaTeams = {
   "Memphis Grizzlies": "MEM",
 };
 
-export {nbaTeams};
+const nbaTeamUrlAbbreviations = {
+  "NYK": "NY",
+  "GSW": "GS",
+  "NOR": "NO",
+  "UTH": "UTA",
+  "SAS": "SA"
+};
+
+export {nbaTeams, nbaTeamUrlAbbreviations};
