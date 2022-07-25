@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nhlPositionsRequiringNameTranslation = exports.ignoredNhlPositions = exports.nhlPositions = void 0;
+exports.nhlPositionsRequiringNameTranslation = exports.nhlPositions = exports.ignoredNhlPositions = void 0;
 var nhlPositions = {
   "LW": "LW",
   "C": "C",

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nbaTeams = void 0;
+exports.nbaTeams = exports.nbaTeamUrlAbbreviations = void 0;
 var nbaTeams = {
   "Atlanta Hawks": "ATL",
   "Brooklyn Nets": "BKN",
@@ -37,3 +37,11 @@ var nbaTeams = {
   "Memphis Grizzlies": "MEM"
 };
 exports.nbaTeams = nbaTeams;
+var nbaTeamUrlAbbreviations = {
+  "NYK": "NY",
+  "GSW": "GS",
+  "NOR": "NO",
+  "UTH": "UTA",
+  "SAS": "SA"
+};
+exports.nbaTeamUrlAbbreviations = nbaTeamUrlAbbreviations;

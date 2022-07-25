@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nflTeamNames = exports.nflTeams = void 0;
+exports.nflTeams = exports.nflTeamUrlAbbreviations = exports.nflTeamNames = void 0;
 var nflTeams = {
   "Arizona Cardinals": "ARI",
   "Atlanta Falcons": "ATL",
@@ -36,7 +36,7 @@ var nflTeams = {
   "Seattle Seahawks": "SEA",
   "Tampa Bay Buccaneers": "TAM",
   "Tennessee Titans": "TEN",
-  "Washington Football Team": "WAS"
+  "Washington Commanders": "WAS"
 };
 exports.nflTeams = nflTeams;
 var nflTeamNames = {
@@ -71,6 +71,16 @@ var nflTeamNames = {
   SEA: "Seahawks, Seattle",
   TAM: "Buccaneers, Tampa Bay",
   TEN: "Titans, Tennessee",
-  WAS: "Football Team, Washington"
+  WAS: "Commanders, Washington"
 };
 exports.nflTeamNames = nflTeamNames;
+var nflTeamUrlAbbreviations = {
+  "GNB": "GB",
+  "NWE": "NE",
+  "L.V": "LV",
+  "K.C": "KC",
+  "SFO": "SF",
+  "TAM": "TB",
+  "NOR": "NO"
+};
+exports.nflTeamUrlAbbreviations = nflTeamUrlAbbreviations;

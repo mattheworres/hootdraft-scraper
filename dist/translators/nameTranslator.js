@@ -16,7 +16,7 @@ var translateName = function translateName(sport, positionText, teamText, nameTe
   switch (sport) {
     case "nfl":
     case "nfle":
-      return (0, _nflNameTranslator.nflNameTranslator)(positionText, teamText, nameText);
+      return (0, _nflNameTranslator.translate)(positionText, teamText, nameText);
 
     default:
       return nameText;

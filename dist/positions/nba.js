@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nbaPositionsRequiringNameTranslation = exports.ignoredNbaPositions = exports.nbaPositions = void 0;
+exports.nbaPositionsRequiringNameTranslation = exports.nbaPositions = exports.ignoredNbaPositions = void 0;
 var nbaPositions = {
   "PG": "PG",
   "SG": "SG",

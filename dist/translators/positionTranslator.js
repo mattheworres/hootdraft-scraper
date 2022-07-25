@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getIgnoredPositions = exports.translatePosition = void 0;
+exports.translatePosition = exports.getIgnoredPositions = void 0;
 
 var _positions = require("../positions");
 

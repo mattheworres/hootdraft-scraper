@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ncaafbePositionsRequiringNameTranslation = exports.ncaafbPositionsRequiringNameTranslation = exports.ignoredNcaafbePositions = exports.ncaafbePositions = exports.ignoredNcaafbPositions = exports.ncaafbPositions = void 0;
+exports.ncaafbePositionsRequiringNameTranslation = exports.ncaafbePositions = exports.ncaafbPositionsRequiringNameTranslation = exports.ncaafbPositions = exports.ignoredNcaafbePositions = exports.ignoredNcaafbPositions = void 0;
 var ncaafbPositions = {
   "QB": "QB",
   "RB": "RB",

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ncaabbPositionsRequiringNameTranslation = exports.ignoredNcaabbPositions = exports.ncaabbPositions = void 0;
+exports.ncaabbPositionsRequiringNameTranslation = exports.ncaabbPositions = exports.ignoredNcaabbPositions = void 0;
 var ncaabbPositions = {
   "PG": "PG",
   "SG": "SG",
