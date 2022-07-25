@@ -1,5 +1,4 @@
 import lodash from 'lodash';
-import {scrapePlayers} from './playerScraper';
 import {scrapeTeams} from './teamScraper';
 
 const validSports = ['nba', 'mlb', 'nfle', 'nfl', 'nhl', 'ncaabb', 'ncaafb', 'ncaafbe'];
@@ -10,7 +9,6 @@ const debugEnabled = (!!debugVal);1
 if (sport === undefined || sport.length === 0 || lodash.includes(validSports, sport.toLowerCase()) === false) {
   console.warn(`Can't scrape - need a valid sport value to scrape for (${sport}), like ${validSports.join(', ')} - OK?`);
 } else {
-  // scrapePlayers(sport, debugEnabled);
   scrapeTeams(sport, debugEnabled);
 }
 
