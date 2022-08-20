@@ -2,11 +2,11 @@
 const sportUrlTranslator = sport => {
   switch(sport) {
     case 'ncaabb':
-      return 'collegebasketball';
+      return 'college-basketball';
 
     case 'ncaafbe':
     case 'ncaafb':
-      return 'collegefootball';
+      return 'college-football';
 
     case 'nfle':
       return 'nfl';

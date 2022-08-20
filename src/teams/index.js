@@ -2,8 +2,8 @@ import { nbaTeams, nbaTeamUrlAbbreviations } from "./nba";
 import { nflTeams, nflTeamNames, nflTeamUrlAbbreviations } from "./nfl";
 import { nhlTeams, nhlTeamUrlAbbreviations } from "./nhl";
 import { mlbTeams, mlbTeamUrlAbbreviations } from "./mlb";
-import { ncaabbTeams } from "./ncaabb";
-import { ncaafbTeams } from "./ncaafb";
+import { ncaabbTeams, ncaaBbTeamUrlAbbreviations } from "./ncaabb";
+import { ncaafbTeams, ncaaFbTeamUrlAbbreviations } from "./ncaafb";
 
 export {
   nbaTeams,
@@ -16,5 +16,7 @@ export {
   mlbTeams,
   mlbTeamUrlAbbreviations,
   ncaabbTeams,
-  ncaafbTeams
+  ncaaBbTeamUrlAbbreviations,
+  ncaafbTeams,
+  ncaaFbTeamUrlAbbreviations
 };

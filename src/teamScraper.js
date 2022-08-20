@@ -28,82 +28,87 @@ export function scrapeTeams(sport, debugEnabled = false) {
     for(const [teamAbbrev, teamUrl] of Object.entries(teamUrlObject)) {
       scraperLimiter.removeTokens(1, () => {
         console.info(`${index + 1} `);
-        requestPromise(teamUrl)
-          .then((html) => {
-            const $ = cheerio.load(html);
-            $('table[class="TableBase-table"] tbody tr.TableBase-bodyTr')
-            .each((index, element) => {
-              try {
-                const newPlayer = parsePlayer(sport, element, teamAbbrev);
-                if (newPlayer !== null) players.push(newPlayer);
-              } catch (e) {
-                switch (e.parsingType) {
-                  case "name":
-                    nameExceptions.add(e);
-                    break;
+        try {
+          requestPromise(teamUrl)
+            .then((html) => {
+              const $ = cheerio.load(html);
+              $('table[class="TableBase-table"] tbody tr.TableBase-bodyTr')
+              .each((index, element) => {
+                try {
+                  const newPlayer = parsePlayer(sport, element, teamAbbrev);
+                  if (newPlayer !== null) players.push(newPlayer);
+                } catch (e) {
+                  switch (e.parsingType) {
+                    case "name":
+                      nameExceptions.add(e);
+                      break;
 
-                  case "position":
-                    positionExceptions.add(e);
-                    break;
+                    case "position":
+                      positionExceptions.add(e);
+                      break;
 
-                  case "team":
-                    teamExceptions.add(e);
-                    break;
-                  default:
-                    console.error(e);
+                    case "team":
+                      teamExceptions.add(e);
+                      break;
+                    default:
+                      console.error(e);
+                  }
                 }
-              }
-            });
-
-            if (isNflLeague) {
-              players.push({
-                player: translateName(sport, DEF, teamAbbrev, teamAbbrev),
-                position: DEF,
-                team: teamAbbrev
               });
-            }
 
-            finishedUrls.push(teamUrl);
+              if (isNflLeague) {
+                players.push({
+                  player: translateName(sport, DEF, teamAbbrev, teamAbbrev),
+                  position: DEF,
+                  team: teamAbbrev
+                });
+              }
 
-            if (finishedUrls.length === urls.length) {
-              const nameExceptionCount = nameExceptions.size || 0;
-              const positionExceptionCount = positionExceptions.size || 0;
-              const teamExceptionCount = teamExceptions.size || 0;
-              const totalExceptions =
-                nameExceptionCount + positionExceptionCount + teamExceptionCount;
+              finishedUrls.push(teamUrl);
 
-              if (totalExceptions > 0) {
+              if (finishedUrls.length === urls.length) {
+                const nameExceptionCount = nameExceptions.size || 0;
+                const positionExceptionCount = positionExceptions.size || 0;
+                const teamExceptionCount = teamExceptions.size || 0;
+                const totalExceptions =
+                  nameExceptionCount + positionExceptionCount + teamExceptionCount;
+
+                if (totalExceptions > 0) {
+                  console.log(
+                    `\n\nLooks like there were ${totalExceptions} unique parsing exceptions (${nameExceptionCount} name, ${positionExceptionCount} pos, ${teamExceptionCount} team):\n`
+                  );
+
+                  const outputExceptions = (type, exceptions) => {
+                    exceptions.forEach((exception) => {
+                      console.warn(`Type: ${exception.parsingType} | Element text: ${exception.parsingValue} | Row value: ${exception.rowValue}`);
+                    });
+                  };
+
+                  if (debugEnabled) {
+                    outputExceptions("name", nameExceptions);
+                    outputExceptions("position", positionExceptions);
+                    outputExceptions("team", teamExceptions);
+                  }
+                }
+
                 console.log(
-                  `\n\nLooks like there were ${totalExceptions} unique parsing exceptions (${nameExceptionCount} name, ${positionExceptionCount} pos, ${teamExceptionCount} team):\n`
+                  `\n\nScraping complete. Writing ${players.length} players to file...`
                 );
 
-                const outputExceptions = (type, exceptions) => {
-                  exceptions.forEach((exception) => {
-                    console.warn(`Type: ${exception.parsingType} | Element text: ${exception.parsingValue} | Row value: ${exception.rowValue}`);
-                  });
-                };
-
-                if (debugEnabled) {
-                  outputExceptions("name", nameExceptions);
-                  outputExceptions("position", positionExceptions);
-                  outputExceptions("team", teamExceptions);
-                }
+                writeToCsv(sport, players).then(() => {
+                  console.log(`\n\nDone! Checkout ${sport}_players.csv\n`);
+                  return;
+                });
               }
-
-              console.log(
-                `\n\nScraping complete. Writing ${players.length} players to file...`
-              );
-
-              writeToCsv(sport, players).then(() => {
-                console.log(`\n\nDone! Checkout ${sport}_players.csv\n`);
-                return;
-              });
-            }
-          })
-          .catch((error) => {
-            console.warn("\n\nUh oh, failure: ", teamUrl, error);
-            failedUrls.push(teamUrl);
-          });
+            })
+            .catch((error) => {
+              const interesting = error && error.response && error.response.request.href;
+              console.warn("Uh oh, failure: ", interesting ? interesting : Object.keys(error.response));
+              failedUrls.push(teamUrl);
+            });
+        } catch (error) {
+          console.warn(`Aw naw, error: ${Object.keys(error)}`);
+        };
       });
     };
   });

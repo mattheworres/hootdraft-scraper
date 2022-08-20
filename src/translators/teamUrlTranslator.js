@@ -8,7 +8,9 @@ import {
   mlbTeams,
   mlbTeamUrlAbbreviations,
   ncaabbTeams,
-  ncaafbTeams
+  ncaaBbTeamUrlAbbreviations,
+  ncaafbTeams,
+  ncaaFbTeamUrlAbbreviations
 } from "../teams/index";
 
 import { sportUrlTranslator } from "./sportUrlTranslator";
@@ -16,6 +18,11 @@ import { sportUrlTranslator } from "./sportUrlTranslator";
 export const sausageCaseForUrl = string => {
   let result = string.toLowerCase();
 
+  //Remove existing dashes (order is important)
+  while (result.indexOf('-') !== -1) {
+    result = result.replace('-', '');
+  }
+  
   //Convert spaces to dashes
   while (result.indexOf(' ') !== -1) {
     result = result.replace(' ', '-');
@@ -24,6 +31,24 @@ export const sausageCaseForUrl = string => {
   //Remove periods from URL
   while (result.indexOf('.') !== -1) {
     result = result.replace('.', '');
+  }
+
+  //Remove open & close parens
+  while(result.indexOf('(') !== -1) {
+    result = result.replace('(', '');
+  }
+  while (result.indexOf(')') !== -1) {
+    result = result.replace(')', '');
+  }
+
+  //Remove apostraphes
+  while(result.indexOf('\'') !== -1) {
+    result = result.replace('\'', '');
+  }
+
+  //Remove ampersands
+  while(result.indexOf('&') !== -1) {
+    result = result.replace('&', '');
   }
 
   return result;
@@ -41,8 +66,6 @@ const getUrl = (urlSport, teamName, teamAbbreviation) => {
 
 export const translateTeamUrls = sport => {
   let teams, abbreviationReplacements;
-
-  //TODO: fill out the rest of these sports
 
   switch (sport) {
     case 'nba':
@@ -68,11 +91,13 @@ export const translateTeamUrls = sport => {
 
     case 'ncaabb':
       teams = ncaabbTeams;
+      abbreviationReplacements = ncaaBbTeamUrlAbbreviations;
       break;
 
     case 'ncaafb':
     case 'ncaafbe':
       teams = ncaafbTeams;
+      abbreviationReplacements = ncaaFbTeamUrlAbbreviations;
       break;
   };
 
