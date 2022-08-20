@@ -8,6 +8,10 @@ test('sausage cases string for url', function () {
   expect((0, _teamUrlTranslator.sausageCaseForUrl)('A Very Fine String')).toBe('a-very-fine-string');
   expect((0, _teamUrlTranslator.sausageCaseForUrl)('Well, what did you expect?')).toBe('well,-what-did-you-expect?');
   expect((0, _teamUrlTranslator.sausageCaseForUrl)('St. Louis Blues')).toBe('st-louis-blues');
+  expect((0, _teamUrlTranslator.sausageCaseForUrl)('Texas A&M Aggies')).toBe('texas-am-aggies');
+  expect((0, _teamUrlTranslator.sausageCaseForUrl)('Louisiana-Monroe Warhawks')).toBe('louisianamonroe-warhawks');
+  expect((0, _teamUrlTranslator.sausageCaseForUrl)('Miami (FL) Hurricanes')).toBe('miami-fl-hurricanes');
+  expect((0, _teamUrlTranslator.sausageCaseForUrl)('Louisiana Ragin\' Cajuns')).toBe('louisiana-ragin-cajuns');
 });
 test('gets abbreviation replacements for url', function () {
   expect((0, _teamUrlTranslator.getAbbreviationReplacements)('GNB', _teams.nflTeamUrlAbbreviations)).toBe('GB');

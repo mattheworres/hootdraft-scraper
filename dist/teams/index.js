@@ -27,6 +27,18 @@ Object.defineProperty(exports, "nbaTeams", {
     return _nba.nbaTeams;
   }
 });
+Object.defineProperty(exports, "ncaaBbTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _ncaabb.ncaaBbTeamUrlAbbreviations;
+  }
+});
+Object.defineProperty(exports, "ncaaFbTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _ncaafb.ncaaFbTeamUrlAbbreviations;
+  }
+});
 Object.defineProperty(exports, "ncaabbTeams", {
   enumerable: true,
   get: function get() {

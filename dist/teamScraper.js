@@ -61,74 +61,82 @@ function scrapeTeams(sport) {
 
       scraperLimiter.removeTokens(1, function () {
         console.info("".concat(index + 1, " "));
-        (0, _requestPromise["default"])(teamUrl).then(function (html) {
-          var $ = cheerio.load(html);
-          $('table[class="TableBase-table"] tbody tr.TableBase-bodyTr').each(function (index, element) {
-            try {
-              var newPlayer = (0, _playerParser.parsePlayer)(sport, element, teamAbbrev);
-              if (newPlayer !== null) players.push(newPlayer);
-            } catch (e) {
-              switch (e.parsingType) {
-                case "name":
-                  nameExceptions.add(e);
-                  break;
 
-                case "position":
-                  positionExceptions.add(e);
-                  break;
+        try {
+          (0, _requestPromise["default"])(teamUrl).then(function (html) {
+            var $ = cheerio.load(html);
+            $('table[class="TableBase-table"] tbody tr.TableBase-bodyTr').each(function (index, element) {
+              try {
+                var newPlayer = (0, _playerParser.parsePlayer)(sport, element, teamAbbrev);
+                if (newPlayer !== null) players.push(newPlayer);
+              } catch (e) {
+                switch (e.parsingType) {
+                  case "name":
+                    nameExceptions.add(e);
+                    break;
 
-                case "team":
-                  teamExceptions.add(e);
-                  break;
+                  case "position":
+                    positionExceptions.add(e);
+                    break;
 
-                default:
-                  console.error(e);
+                  case "team":
+                    teamExceptions.add(e);
+                    break;
+
+                  default:
+                    console.error(e);
+                }
               }
+            });
+
+            if (isNflLeague) {
+              players.push({
+                player: (0, _index.translateName)(sport, DEF, teamAbbrev, teamAbbrev),
+                position: DEF,
+                team: teamAbbrev
+              });
             }
+
+            finishedUrls.push(teamUrl);
+
+            if (finishedUrls.length === urls.length) {
+              var nameExceptionCount = nameExceptions.size || 0;
+              var positionExceptionCount = positionExceptions.size || 0;
+              var teamExceptionCount = teamExceptions.size || 0;
+              var totalExceptions = nameExceptionCount + positionExceptionCount + teamExceptionCount;
+
+              if (totalExceptions > 0) {
+                console.log("\n\nLooks like there were ".concat(totalExceptions, " unique parsing exceptions (").concat(nameExceptionCount, " name, ").concat(positionExceptionCount, " pos, ").concat(teamExceptionCount, " team):\n"));
+
+                var outputExceptions = function outputExceptions(type, exceptions) {
+                  exceptions.forEach(function (exception) {
+                    console.warn("Type: ".concat(exception.parsingType, " | Element text: ").concat(exception.parsingValue, " | Row value: ").concat(exception.rowValue));
+                  });
+                };
+
+                if (debugEnabled) {
+                  outputExceptions("name", nameExceptions);
+                  outputExceptions("position", positionExceptions);
+                  outputExceptions("team", teamExceptions);
+                }
+              }
+
+              console.log("\n\nScraping complete. Writing ".concat(players.length, " players to file..."));
+              (0, _csvWriter.writeToCsv)(sport, players).then(function () {
+                console.log("\n\nDone! Checkout ".concat(sport, "_players.csv\n"));
+                return;
+              });
+            }
+          })["catch"](function (error) {
+            var interesting = error && error.response && error.response.request.href;
+            console.warn("Uh oh, failure: ", interesting ? interesting : Object.keys(error.response));
+            failedUrls.push(teamUrl);
           });
+        } catch (error) {
+          console.warn("Aw naw, error: ".concat(Object.keys(error)));
+        }
 
-          if (isNflLeague) {
-            players.push({
-              player: (0, _index.translateName)(sport, DEF, teamAbbrev, teamAbbrev),
-              position: DEF,
-              team: teamAbbrev
-            });
-          }
-
-          finishedUrls.push(teamUrl);
-
-          if (finishedUrls.length === urls.length) {
-            var nameExceptionCount = nameExceptions.size || 0;
-            var positionExceptionCount = positionExceptions.size || 0;
-            var teamExceptionCount = teamExceptions.size || 0;
-            var totalExceptions = nameExceptionCount + positionExceptionCount + teamExceptionCount;
-
-            if (totalExceptions > 0) {
-              console.log("\n\nLooks like there were ".concat(totalExceptions, " unique parsing exceptions (").concat(nameExceptionCount, " name, ").concat(positionExceptionCount, " pos, ").concat(teamExceptionCount, " team):\n"));
-
-              var outputExceptions = function outputExceptions(type, exceptions) {
-                exceptions.forEach(function (exception) {
-                  console.warn("Type: ".concat(exception.parsingType, " | Element text: ").concat(exception.parsingValue, " | Row value: ").concat(exception.rowValue));
-                });
-              };
-
-              if (debugEnabled) {
-                outputExceptions("name", nameExceptions);
-                outputExceptions("position", positionExceptions);
-                outputExceptions("team", teamExceptions);
-              }
-            }
-
-            console.log("\n\nScraping complete. Writing ".concat(players.length, " players to file..."));
-            (0, _csvWriter.writeToCsv)(sport, players).then(function () {
-              console.log("\n\nDone! Checkout ".concat(sport, "_players.csv\n"));
-              return;
-            });
-          }
-        })["catch"](function (error) {
-          console.warn("\n\nUh oh, failure: ", teamUrl, error);
-          failedUrls.push(teamUrl);
-        });
+        ;
       });
     };
 

@@ -2,8 +2,6 @@
 
 var _lodash = _interopRequireDefault(require("lodash"));
 
-var _playerScraper = require("./playerScraper");
-
 var _teamScraper = require("./teamScraper");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -17,6 +15,5 @@ var debugEnabled = !!debugVal;
 if (sport === undefined || sport.length === 0 || _lodash["default"].includes(validSports, sport.toLowerCase()) === false) {
   console.warn("Can't scrape - need a valid sport value to scrape for (".concat(sport, "), like ").concat(validSports.join(', '), " - OK?"));
 } else {
-  // scrapePlayers(sport, debugEnabled);
   (0, _teamScraper.scrapeTeams)(sport, debugEnabled);
 }

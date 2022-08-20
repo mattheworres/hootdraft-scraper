@@ -24,7 +24,12 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var sausageCaseForUrl = function sausageCaseForUrl(string) {
-  var result = string.toLowerCase(); //Convert spaces to dashes
+  var result = string.toLowerCase(); //Remove existing dashes (order is important)
+
+  while (result.indexOf('-') !== -1) {
+    result = result.replace('-', '');
+  } //Convert spaces to dashes
+
 
   while (result.indexOf(' ') !== -1) {
     result = result.replace(' ', '-');
@@ -33,6 +38,25 @@ var sausageCaseForUrl = function sausageCaseForUrl(string) {
 
   while (result.indexOf('.') !== -1) {
     result = result.replace('.', '');
+  } //Remove open & close parens
+
+
+  while (result.indexOf('(') !== -1) {
+    result = result.replace('(', '');
+  }
+
+  while (result.indexOf(')') !== -1) {
+    result = result.replace(')', '');
+  } //Remove apostraphes
+
+
+  while (result.indexOf('\'') !== -1) {
+    result = result.replace('\'', '');
+  } //Remove ampersands
+
+
+  while (result.indexOf('&') !== -1) {
+    result = result.replace('&', '');
   }
 
   return result;
@@ -54,7 +78,7 @@ var getUrl = function getUrl(urlSport, teamName, teamAbbreviation) {
 };
 
 var translateTeamUrls = function translateTeamUrls(sport) {
-  var teams, abbreviationReplacements; //TODO: fill out the rest of these sports
+  var teams, abbreviationReplacements;
 
   switch (sport) {
     case 'nba':
@@ -80,11 +104,13 @@ var translateTeamUrls = function translateTeamUrls(sport) {
 
     case 'ncaabb':
       teams = _index.ncaabbTeams;
+      abbreviationReplacements = _index.ncaaBbTeamUrlAbbreviations;
       break;
 
     case 'ncaafb':
     case 'ncaafbe':
       teams = _index.ncaafbTeams;
+      abbreviationReplacements = _index.ncaaFbTeamUrlAbbreviations;
       break;
   }
 
