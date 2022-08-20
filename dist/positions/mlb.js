@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mlbPositionsRequiringNameTranslation = exports.ignoredMlbPositions = exports.mlbPositions = void 0;
+exports.mlbPositionsRequiringNameTranslation = exports.mlbPositions = exports.ignoredMlbPositions = void 0;
 var mlbPositions = {
   "C": "C",
   "1B": "1B",

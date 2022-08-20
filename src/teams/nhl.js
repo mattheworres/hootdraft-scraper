@@ -22,6 +22,7 @@ const nhlTeams = {
   "Philadelphia Flyers": "PHI",
   "Arizona Coyotes": "ARI",
   "Pittsburgh Penguins": "PIT",
+  "Seattle Kraken": "SEA",
   "San Jose Sharks": "SJS",
   "St. Louis Blues": "STL",
   "Tampa Bay Lightning": "TAM",
@@ -32,4 +33,14 @@ const nhlTeams = {
   "Winnipeg Jets": "WPG",
 };
 
-export {nhlTeams};
+const nhlTeamUrlAbbreviations = {
+  "CBS": "CLB",
+  "LAK": "LA",
+  "NJD": "NJ",
+  "SJS": "SJ",
+  "TAM": "TB",
+  "VGK": "LV",
+  "MTL": "MON"
+};
+
+export {nhlTeams, nhlTeamUrlAbbreviations};

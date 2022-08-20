@@ -3,34 +3,40 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "nbaTeams", {
+Object.defineProperty(exports, "mlbTeamUrlAbbreviations", {
   enumerable: true,
   get: function get() {
-    return _nba.nbaTeams;
-  }
-});
-Object.defineProperty(exports, "nflTeams", {
-  enumerable: true,
-  get: function get() {
-    return _nfl.nflTeams;
-  }
-});
-Object.defineProperty(exports, "nflTeamNames", {
-  enumerable: true,
-  get: function get() {
-    return _nfl.nflTeamNames;
-  }
-});
-Object.defineProperty(exports, "nhlTeams", {
-  enumerable: true,
-  get: function get() {
-    return _nhl.nhlTeams;
+    return _mlb.mlbTeamUrlAbbreviations;
   }
 });
 Object.defineProperty(exports, "mlbTeams", {
   enumerable: true,
   get: function get() {
     return _mlb.mlbTeams;
+  }
+});
+Object.defineProperty(exports, "nbaTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _nba.nbaTeamUrlAbbreviations;
+  }
+});
+Object.defineProperty(exports, "nbaTeams", {
+  enumerable: true,
+  get: function get() {
+    return _nba.nbaTeams;
+  }
+});
+Object.defineProperty(exports, "ncaaBbTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _ncaabb.ncaaBbTeamUrlAbbreviations;
+  }
+});
+Object.defineProperty(exports, "ncaaFbTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _ncaafb.ncaaFbTeamUrlAbbreviations;
   }
 });
 Object.defineProperty(exports, "ncaabbTeams", {
@@ -43,6 +49,36 @@ Object.defineProperty(exports, "ncaafbTeams", {
   enumerable: true,
   get: function get() {
     return _ncaafb.ncaafbTeams;
+  }
+});
+Object.defineProperty(exports, "nflTeamNames", {
+  enumerable: true,
+  get: function get() {
+    return _nfl.nflTeamNames;
+  }
+});
+Object.defineProperty(exports, "nflTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _nfl.nflTeamUrlAbbreviations;
+  }
+});
+Object.defineProperty(exports, "nflTeams", {
+  enumerable: true,
+  get: function get() {
+    return _nfl.nflTeams;
+  }
+});
+Object.defineProperty(exports, "nhlTeamUrlAbbreviations", {
+  enumerable: true,
+  get: function get() {
+    return _nhl.nhlTeamUrlAbbreviations;
+  }
+});
+Object.defineProperty(exports, "nhlTeams", {
+  enumerable: true,
+  get: function get() {
+    return _nhl.nhlTeams;
   }
 });
 

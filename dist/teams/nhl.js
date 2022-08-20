@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nhlTeams = void 0;
+exports.nhlTeams = exports.nhlTeamUrlAbbreviations = void 0;
 var nhlTeams = {
   "Anaheim Ducks": "ANA",
   "Boston Bruins": "BOS",
@@ -28,6 +28,7 @@ var nhlTeams = {
   "Philadelphia Flyers": "PHI",
   "Arizona Coyotes": "ARI",
   "Pittsburgh Penguins": "PIT",
+  "Seattle Kraken": "SEA",
   "San Jose Sharks": "SJS",
   "St. Louis Blues": "STL",
   "Tampa Bay Lightning": "TAM",
@@ -38,3 +39,13 @@ var nhlTeams = {
   "Winnipeg Jets": "WPG"
 };
 exports.nhlTeams = nhlTeams;
+var nhlTeamUrlAbbreviations = {
+  "CBS": "CLB",
+  "LAK": "LA",
+  "NJD": "NJ",
+  "SJS": "SJ",
+  "TAM": "TB",
+  "VGK": "LV",
+  "MTL": "MON"
+};
+exports.nhlTeamUrlAbbreviations = nhlTeamUrlAbbreviations;

@@ -3,12 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "translatePosition", {
-  enumerable: true,
-  get: function get() {
-    return _positionTranslator.translatePosition;
-  }
-});
 Object.defineProperty(exports, "getIgnoredPositions", {
   enumerable: true,
   get: function get() {
@@ -21,16 +15,22 @@ Object.defineProperty(exports, "sportUrlTranslator", {
     return _sportUrlTranslator.sportUrlTranslator;
   }
 });
-Object.defineProperty(exports, "translateTeam", {
-  enumerable: true,
-  get: function get() {
-    return _teamTranslator.translateTeam;
-  }
-});
 Object.defineProperty(exports, "translateName", {
   enumerable: true,
   get: function get() {
     return _nameTranslator.translateName;
+  }
+});
+Object.defineProperty(exports, "translatePosition", {
+  enumerable: true,
+  get: function get() {
+    return _positionTranslator.translatePosition;
+  }
+});
+Object.defineProperty(exports, "translateTeam", {
+  enumerable: true,
+  get: function get() {
+    return _teamTranslator.translateTeam;
   }
 });
 

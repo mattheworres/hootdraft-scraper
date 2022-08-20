@@ -9,7 +9,7 @@ import {
   nhlPositionsRequiringNameTranslation
 } from "../positions/index";
 
-import {nflNameTranslator} from "./nflNameTranslator";
+import { translate as nflNameTranslator } from "./nflNameTranslator";
 
 export const translateName = (sport, positionText, teamText, nameText) => {
   const translatedPositions = getListOfTranslatedPositions(sport);

@@ -30,7 +30,7 @@ const nflTeams = {
   "Seattle Seahawks": "SEA",
   "Tampa Bay Buccaneers": "TAM",
   "Tennessee Titans": "TEN",
-  "Washington Football Team": "WAS",
+  "Washington Commanders": "WAS",
 };
 
 const nflTeamNames = {
@@ -65,7 +65,17 @@ const nflTeamNames = {
   SEA: "Seahawks, Seattle",
   TAM: "Buccaneers, Tampa Bay",
   TEN: "Titans, Tennessee",
-  WAS: "Football Team, Washington",
+  WAS: "Commanders, Washington",
 };
 
-export { nflTeams, nflTeamNames };
+const nflTeamUrlAbbreviations = {
+  "GNB": "GB",
+  "NWE": "NE",
+  "L.V": "LV",
+  "K.C": "KC",
+  "SFO": "SF",
+  "TAM": "TB",
+  "NOR": "NO"
+};
+
+export { nflTeams, nflTeamNames, nflTeamUrlAbbreviations };

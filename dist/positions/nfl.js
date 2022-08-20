@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.nflePositionsRequiringNameTranslation = exports.nflPositionsRequiringNameTranslation = exports.ignoredNflePositions = exports.nflePositions = exports.ignoredNflPositions = exports.nflPositions = void 0;
+exports.nflePositionsRequiringNameTranslation = exports.nflePositions = exports.nflPositionsRequiringNameTranslation = exports.nflPositions = exports.ignoredNflePositions = exports.ignoredNflPositions = void 0;
 var nflPositions = {
   "QB": "QB",
   "RB": "RB",

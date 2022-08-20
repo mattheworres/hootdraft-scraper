@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mlbTeams = void 0;
+exports.mlbTeams = exports.mlbTeamUrlAbbreviations = void 0;
 var mlbTeams = {
   "Arizona Diamondbacks": "ARI",
   "Atlanta Braves": "ATL",
@@ -12,7 +12,7 @@ var mlbTeams = {
   "Chicago Cubs": "CHC",
   "Chicago White Sox": "CWS",
   "Cincinnati Reds": "CIN",
-  "Cleveland Indians": "CLE",
+  "Cleveland Guardians": "CLE",
   "Colorado Rockies": "COL",
   "Detroit Tigers": "DET",
   "Houston Astros": "HOU",
@@ -37,3 +37,11 @@ var mlbTeams = {
   "Washington Nationals": "WAS"
 };
 exports.mlbTeams = mlbTeams;
+var mlbTeamUrlAbbreviations = {
+  "CWS": "CHW",
+  "K.C": "KC",
+  "SDG": "SD",
+  "TAM": "TB",
+  "SFO": "SF"
+};
+exports.mlbTeamUrlAbbreviations = mlbTeamUrlAbbreviations;

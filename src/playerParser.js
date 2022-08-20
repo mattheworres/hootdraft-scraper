@@ -1,57 +1,53 @@
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import {
   getIgnoredPositions,
   translatePosition,
-  translateTeam,
   translateName
 } from "./translators/index";
 import lodash from "lodash";
+import { translatePlayerName } from "./translators/playerNameTranslator";
 import {parsingException} from "./helpers/parsingException";
 
-export const parsePlayer = (sport, playerRowElement) => {
+export const parsePlayer = (sport, playerRowElement, team) => {
   let player = {};
   const ignoredPositions = getIgnoredPositions(sport);
 
-  cheerio(playerRowElement)
-    .children("td")
-    .each((index, element) => {
-      const $element = cheerio(element);
-      const rowText = cheerio(playerRowElement).text();
+  const $playerCells = cheerio.load(playerRowElement)("td");
+  $playerCells.toArray()
+    .forEach((element, index) => {
+
+      const $element = cheerio.load(element);
+      const rowText = cheerio.load(playerRowElement).text();
       const elementText = $element.text();
-      
-      if (index === 0) {
-        const playerName = $element.find("a").text();
+
+      if (index === 1) {
+        const playerName = $element("span.CellPlayerName--long span a").text();
 
         if (playerName === undefined || playerName.length === 0) {
           throw new parsingException("name", playerName, rowText);
         }
 
-        player.player = playerName;
-      } else if (index === 1) {
+        player.player = translatePlayerName(playerName);
+      } else if (index === 2) {
+        const trimmedValue = elementText?.trim();
         const translatedPosition = translatePosition(
           sport,
-          elementText
+          trimmedValue
         );
         const positionIsNotIgnored = !lodash.includes(
           ignoredPositions,
-          elementText
+          trimmedValue
         );
-        
+
         if (translatedPosition === undefined && positionIsNotIgnored) {
           throw new parsingException("position", elementText, rowText);
         }
 
         player.position = translatedPosition;
-      } else {
-        const translatedTeam = translateTeam(sport, elementText);
-        
-        if (translatedTeam === undefined) {
-          throw new parsingException("team", elementText, rowText);
-        }
-
-        player.team = translatedTeam;
       }
     });
+
+    player.team = team;
 
   //For everything except NFL, this is just a passthrough. Needed a way to re-write DEF names, but can be used
   //to format other names based on team or position in the future

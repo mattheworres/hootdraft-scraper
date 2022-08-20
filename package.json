@@ -12,18 +12,23 @@
   "scripts": {
     "dev-scrape": "babel-node src/scraper.js",
     "build": "babel src -d dist",
-    "scrape": "node dist/scraper.js"
+    "scrape": "node dist/scraper.js",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.14.1",
-    "cheerio": "1.0.0-rc.9",
+    "caniuse-lite": "^1.0.30001370",
+    "cheerio": "1.0.0-rc.12",
     "csv-writer": "^1.2.0",
     "limiter": "^1.1.5",
     "lodash": "^4.17.21",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
   }
 }
